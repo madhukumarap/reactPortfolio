@@ -9,7 +9,7 @@ const intro = () => {
        <p className='text-white w-2/3'>I am FullStack Web Developer. Currently I am working as a React Developer in India. Also Sharing my knowledge to someone.</p>
        <button className='border-2 border-tertiary text-tertiary px-10 py-3 rounded cursor-pointer'>Get Started</button>
     </div>
-  )
-}
+  );
+};
 
 export default intro
