@@ -6,3 +6,42 @@
 *{
     font-family: 'Montserrat', sans-serif;
 }
+i{
+    cursor: pointer;
+
+}
+i:hover{
+    color: white;
+    /* font-size: 20px; */
+}
+/* loader animation */
+.M{
+    animation: M 1s infinite;
+}
+@keyframes M {
+    0%   
+    {
+        opacity: 1;
+    }
+    50%{
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
+.K{
+    animation: K 1s infinite;
+}
+@keyframes K {
+    0%   
+    {
+        opacity: 0.5;
+    }
+    50%{
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.5;
+    }
+}
