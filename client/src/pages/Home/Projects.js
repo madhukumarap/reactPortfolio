@@ -1,21 +1,26 @@
 import React, { useState } from "react";
 import Sectiontitle from "../../components/sectionTitle";
+import { useSelector } from 'react-redux';
+
 // import { experiences } from '../../resources/experiences';
 import { projects } from "../../resources/projects";
 const Projects = () => {
   const [selectedItemIndex, setSelectedItemIndex] = useState(0);
+  const { loading, portfolioData } = useSelector((state) => state.root);
+  const {projects: projectList} = portfolioData;
 
   return (
     <div>
       <Sectiontitle title="Projects" />
       <div className="flex py-10 gap-20 sm:flex-col">
         <div className="flex flex-col gap-10 border-l-2 border-[#135e4c87] w-[110%] sm:flex-row sm:overflow-scroll sm:w-full">
-          {projects.map((projectes, index) => (
+          {projectList.map((projectes, index) => (
             <div
               onClick={() => {
                 setSelectedItemIndex(index);
               }}
               className="cursor-pointer"
+              key={index}
             >
               <h1
                 className={`text-xl px-10 ${
