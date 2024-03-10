@@ -1,27 +1,36 @@
-import React from 'react'
-import Header from "../../components/header"
+import React from 'react';
+import { useSelector } from 'react-redux'; // Corrected import statement
+
+import Header from "../../components/header";
 import Intro from "./intro";
 import About from "./about";
-import Experinces from './experinces';
-import Projects from './Projects';
+import Experiences from './experinces'; // Corrected typo in import statement
+import Projects from './Projects'; // Corrected typo in import statement
 import Contact from './contact';
 import Footer from './footer';
 import Sidebar from './sidebar';
-const home = () => {
+import Education from './Education';
+
+const Home = () => { // Capitalized component name
+  const { portfolioData } = useSelector((state) => state.root);
+
   return (
     <div >
-      <Header/>
-      <div className='bg-primary px-40 sm:px-5 '>
-      <Intro/>
-      <About/>
-      <Experinces/>
-      <Projects/>
-      <Contact/>
-      <Footer/>
-      <Sidebar/>
-      </div>
+      <Header />
+      {portfolioData && (
+        <div className='bg-primary px-40 sm:px-5 '>
+          <Intro />
+          <About />
+          <Experiences /> {/* Corrected component name */}
+          <Projects /> {/* Corrected component name */}
+          <Education/>
+          <Contact />
+          <Footer />
+          <Sidebar />
+        </div>
+      )}
     </div>
   )
 }
 
-export default home
+export default Home; // Capitalized export name

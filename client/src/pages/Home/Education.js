@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import SectionTitle from '../../components/sectionTitle';
 import { useSelector } from 'react-redux';
 
-const Experiences = () => {
+const Education = () => {
    const { loading, portfolioData } = useSelector((state) => state.root);
-   const { experiences: portfolioExperiences } = portfolioData || {}; // Rename experiences to avoid conflicts
+   const { education: portfolioExperiences } = portfolioData || {}; // Rename experiences to avoid conflicts
    const [selectedItemIndex, setSelectedItemIndex] = useState(0);
 
    return (
@@ -17,7 +17,7 @@ const Experiences = () => {
                      setSelectedItemIndex(index);
                   }} className='cursor-pointer'>
                      <h1 className={`text-xl px-10 ${selectedItemIndex === index ? "text-tertiary border-tertiary border-l-4 -ml-[3px] bg-[#1a7f5a31] py-3 sm:w-40" : "text-white"}`}>
-                        {experience.period}
+                        {experience.year}
                      </h1>
                      {/* Add other fields you want to display */}
                   </div>
@@ -28,7 +28,7 @@ const Experiences = () => {
                   {portfolioExperiences && portfolioExperiences[selectedItemIndex] &&
                      <>
                         <h1 className='text-secondary text-xl'>{portfolioExperiences[selectedItemIndex].title}</h1>
-                        <h1 className='text-secondary text-xl'>{portfolioExperiences[selectedItemIndex].company}</h1>
+                        <h1 className='text-secondary text-xl'>{portfolioExperiences[selectedItemIndex].institution}</h1>
                         <p className='text-white'>{portfolioExperiences[selectedItemIndex].description}</p>
                      </>
                   }
@@ -39,4 +39,4 @@ const Experiences = () => {
    );
 }
 
-export default Experiences;
+export default Education;
