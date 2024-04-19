@@ -3,15 +3,21 @@ import './App.css';
 import Home from './pages/Home';
 import { useEffect } from 'react';
 import Loader from './components/loader';
-import axios from 'axios';
+
+
 import { useDispatch, useSelector } from 'react-redux';
 import { setPortfolioData } from './redux/rootSlice';
+import Admin from "./pages/admin"
+import axios from 'axios';
+
+axios.defaults.baseURL = "http://localhost:8000/";
 
 function App() {
   const { loading, portfolioData } = useSelector((state) => state.root);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    
     const getPortfolioData = async () => {
       try {
         const response = await axios.get('/api/portfolio/get-portfolio-data/');
@@ -23,7 +29,7 @@ function App() {
     };
 
     getPortfolioData();
-  }, [dispatch]); // Added dispatch as dependency
+  }, [dispatch]); 
 
   useEffect(() => {
     console.log(portfolioData);
@@ -34,6 +40,7 @@ function App() {
       {loading ? <Loader /> : null}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/admin" element = {<Admin />}/>
       </Routes>
     </BrowserRouter>
   );
