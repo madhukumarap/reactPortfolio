@@ -21,14 +21,15 @@ const Home = () => { // Capitalized component name
         <div className='bg-primary px-40 sm:px-5 '>
           <Intro />
           <About />
-          <Experiences /> {/* Corrected component name */}
-          <Projects /> {/* Corrected component name */}
+          <Experiences /> 
+          <Projects /> 
           <Education/>
           <Contact />
           <Footer />
           <Sidebar />
         </div>
       )}
+      {/* <h1 className='px-32 py-32 font-bold font-mono bg-slate-400 '>Data is Loading....................</h1> */}
     </div>
   )
 }
