@@ -9,8 +9,10 @@ const AdminAbout = () => {
   const { portfolioData } = useSelector((state) => state.root);
   const onFinish = async (values) => {
     try {
+      const tempSkills = values.skilles.split(',');
+      values.skilles = tempSkills
         dispatch(showLoading());      
-        const response = await axios.post("/get-portfolio-data/update-about", {
+        const response = await axios.post("/api/portfolio/update-about", {
           ...values,
           _id: portfolioData.about._id
         });
@@ -34,7 +36,10 @@ const AdminAbout = () => {
       <Form
         onFinish={onFinish}
         layout="vertical"
-        initialValues={portfolioData?.about || {}}
+        initialValues={{
+          ...portfolioData.about,
+          skilles:portfolioData.about.skilles.join(",")
+        } || {}}
       >
         <Form.Item name="lottieURL" label="Lottie URL">
           <input placeholder="Lottie URL" />
@@ -46,6 +51,9 @@ const AdminAbout = () => {
         </Form.Item>
         <Form.Item name="description2" label="Description">
           <textarea placeholder="Description...." />
+        </Form.Item>
+        <Form.Item name="skilles" label="Skills">
+          <textarea placeholder="Skilles...." />
         </Form.Item>
         <div className="flex justify-end w-full">
           <button className="px-10 py-2 bg-primary text-white" type="submit" >SAVE</button>

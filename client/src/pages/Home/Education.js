@@ -9,7 +9,7 @@ const Education = () => {
 
    return (
       <div>
-         <SectionTitle title="Experience" />
+         <SectionTitle title="Education" />
          <div className='flex py-10 gap-20 sm:flex-col'>
             <div className='flex flex-col gap-10 border-l-2 border-[#135e4c87] w-[110%] sm:flex-row sm:overflow-scroll sm:w-full'>
                {portfolioExperiences && portfolioExperiences.map((experience, index) => (

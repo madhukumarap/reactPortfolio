@@ -7,9 +7,15 @@ const port = process.env.PORT || 8000;
 const dbConfig = require("./config/dbConfig");
 
 app.use(cors()); // Enable CORS for all routes
+app.use(express.json()); // Ensure JSON parsing middleware is included
 app.use("/api/portfolio", portfolioRoute);
-
-// Console.log is already in place for server startup
+const path = require("path")
+if(process.env.NODE_ENV==="production"){
+    app.use(express.static(path.join(__dirname,"client/build")));
+    app.get("*",(req,res)=>{
+        res.sendFile(path.join(__dirname,"client/build/index.html"))
+    })
+}
 app.listen(port, () => {
     console.log(`Server is running successfully on port ${port}`);
 });

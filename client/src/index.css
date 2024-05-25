@@ -72,3 +72,6 @@ i:hover{
         opacity: 0.5;
     }
 }
+.antd-modal-wrap{
+    z-index: 50 !important;
+}
